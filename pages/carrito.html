@@ -25,20 +25,23 @@
 </header>
 
 <main class="mainCarrito">
+
     <h1>Tu carrito</h1>
 
+    <!-- ACÁ se renderizan los productos -->
     <div id="carritoContenedor"></div>
 
-    <div class="resumenCarrito">
-        <h3>Total: $<span id="totalCarrito">0</span></h3>
-        <button id="vaciarCarrito" class="btnVaciar">Vaciar carrito</button>
+   <div class="resumenCarrito">
+        <h2>Total: $<span id="totalCarrito">0</span></h2>
+
+        <div class="accionesCarrito">
+            <a href="#" class="btnComprarFinal">Comprar</a>
+            <a href="./tienda.html" class="btnSeguir">Seguir comprando</a>
+            <button id="vaciarCarrito" class="btnVaciar">Vaciar carrito</button>
+        </div>
     </div>
 
-    <a href="./tienda.html" class="btnComprar">
-        Seguir comprando
-    </a>
 </main>
-
 <footer>
     <p>&copy; 2024 Tienda Ross</p>
 </footer>
