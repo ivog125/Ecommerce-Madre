@@ -36,6 +36,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     mostrarProductos(productos);
 
+    // BUSCADOR
+
+    const buscador = document.getElementById("buscador");
+
+buscador.addEventListener("input", (e) => {
+    const texto = e.target.value.toLowerCase();
+
+    const productosFiltrados = productos.filter(producto =>
+        producto.nombre.toLowerCase().includes(texto)
+    );
+
+    mostrarProductos(productosFiltrados);
+});
+
     // MODAL
     galeria.addEventListener("click", (e) => {
 
