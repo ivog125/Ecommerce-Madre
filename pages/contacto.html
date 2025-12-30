@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Almacen de Camisetas - Contacto</title>
+    <title>Tienda Ross - Contacto</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -31,21 +31,26 @@
             <p>
                 Si tienes alguna pregunta o comentario, no dudes en contactarnos a través del siguiente formulario:
             </p>
-        <form class="formContacto" action="#" method="post">
-            <label for="name">Nombre:</label>
-            <input type="text" placeholder="Diego" required>
 
-            <label for="phone">Teléfono:</label>
-            <input type="number" placeholder="011 1234-5678" required>
+            <!-- FORMULARIO FORMSPREE -->
+            <form class="formContacto" action="https://formspree.io/f/xqekverr" method="POST">
+                <label for="name">Nombre:</label>
+                <input type="text" name="Nombre" placeholder="Diego" required>
 
-            <label for="email">Correo Electrónico:</label>
-            <input type="email" placeholder="almacen@camisetas.com" required>
+                <label for="phone">Teléfono:</label>
+                <input type="text" name="Telefono" placeholder="011 1234-5678" required>
 
-            <label for="message">Mensaje:</label>
-            <textarea id="message" placeholder="Dejanos tus comentarios, sugerencias o reclamos" required></textarea>
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" name="Email" placeholder="almacen@camisetas.com" required>
 
-            <button type="submit">Enviar</button>
-        </form>
+                <label for="message">Mensaje:</label>
+                <textarea name="Mensaje" id="message" placeholder="Dejanos tus comentarios, sugerencias o reclamos" required></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+
+            <!-- Mensaje de confirmación -->
+            <p class="mensajeExito" style="color:green; display:none;">¡Gracias! Tu mensaje fue enviado.</p>
         </section>
     </main>
 
@@ -57,30 +62,29 @@
             <ul  class="redesSociales">
                 <li>
                     <a href="https://www.instagram.com/" target="_blank">
-                        <img src="../assets/Instagram_logo_2022.svg.png" alt="logo de Instagram" class="">
+                        <img src="../assets/Instagram_logo_2022.svg.png" alt="logo de Instagram">
                     </a>
                 </li>
                 <li>
                     <a href="https://www.facebook.com/" target="_blank">
-                        <img src="../assets/2023_Facebook_icon.svg.png" alt="logo de Facebook" class="">
+                        <img src="../assets/2023_Facebook_icon.svg.png" alt="logo de Facebook">
                     </a>
                 </li>
                 <li>
                     <a href="https://www.web.whatsapp.com/" target="_blank">
-                        <img src="../assets/pngtree-whatsapp-icon-png-image_3584844.jpg" alt="logo de WhatsApp" class="">
+                        <img src="../assets/pngtree-whatsapp-icon-png-image_3584844.jpg" alt="logo de WhatsApp">
                     </a>
                 </li>
             </ul>
         </nav>
     </footer>
-    
+
     <a href="./carrito.html" class="carritoFlotante">
         🛒
         <span class="contadorCarrito">0</span>
     </a>
-</button>
 
-    <script src="../js/productos.js"></script>
+    <script src="../js/contacto.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/carrito.js"></script>
 </body>
