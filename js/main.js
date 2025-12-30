@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 mostrarProductos(productosFiltrados);
             });
 
-            // Modal
+            // Modal y botones
             galeria.addEventListener("click", (e) => {
 
                 if (e.target.classList.contains("btn-saber-mas")) {
