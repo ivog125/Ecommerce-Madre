@@ -1,11 +1,11 @@
 /* =========================
-   IMPORTS
+        IMPORTS
 ========================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap');
 
 /* =========================
-   RESET
+        RESET
 ========================= */
 
 * {
@@ -27,7 +27,7 @@ h1, h2, h3 {
 }
 
 /* =========================
-   LAYOUT GENERAL
+     LAYOUT GENERAL
 ========================= */
 
 header {
@@ -44,7 +44,7 @@ img {
 }
 
 /* =========================
-   HEADER / NAV
+       HEADER / NAV
 ========================= */
 
 .encabezado {
@@ -120,9 +120,9 @@ img {
     font-size: 0.9rem;
 }
 
-/* =========================
-   ACCIONES / BOTONES
-========================= */
+/* =====================================
+   ACCIONES / BOTONES BARRA NAVEGACION
+=======================================*/
 
 .accionesProducto {
     display: flex;
@@ -316,7 +316,7 @@ footer {
 ========================= */
 
 .modal {
-  display: none; /* Oculto por defecto */
+  display: none; 
   position: fixed;
   z-index: 1000;
   left: 0;
@@ -365,7 +365,8 @@ footer {
     }
 }
 
-/* Botón cerrar */
+/* Botón cerrar modal */
+
 .close {
     position: absolute;
     top: 14px;
@@ -389,7 +390,8 @@ footer {
     color: #fff;
 }
 
-/* Contenido */
+/* Contenido del modal */
+
 .modal-content h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.4rem;
@@ -411,4 +413,77 @@ footer {
     font-size: 1rem;
     color: #293ee3;
     font-weight: 600;
+}
+
+/* === CARRITO === */
+
+.mainCarrito {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.carritoItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.carritoItem img {
+    width: 80px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.carritoInfo {
+    flex: 1;
+}
+
+.carritoInfo h4 {
+    margin: 0 0 5px;
+}
+
+.controlesCantidad {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.controlesCantidad button {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.btnEliminar {
+    background: crimson;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btnEliminar:hover {
+    opacity: 0.8;
+}
+
+.resumenCarrito {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btnVaciar {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 6px;
 }

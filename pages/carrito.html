@@ -26,7 +26,13 @@
 
 <main class="mainCarrito">
     <h1>Tu carrito</h1>
-    <p>Tu carrito está vacío 🛒</p>
+
+    <div id="carritoContenedor"></div>
+
+    <div class="resumenCarrito">
+        <h3>Total: $<span id="totalCarrito">0</span></h3>
+        <button id="vaciarCarrito" class="btnVaciar">Vaciar carrito</button>
+    </div>
 
     <a href="./tienda.html" class="btnComprar">
         Seguir comprando
@@ -37,7 +43,9 @@
     <p>&copy; 2024 Tienda Ross</p>
 </footer>
 
-    <script src="../js/productos.js"></script>
-    <script src="../js/main.js"></script>
+
+<script src="../js/productos.js"></script>
+<script src="../js/carrito.js"></script>
+
 </body>
 </html>

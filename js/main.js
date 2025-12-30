@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Referencias al DOM
     const galeria = document.querySelector(".galeria");
     const modal = document.getElementById("modal");
     const titulo = document.getElementById("modal-titulo");
@@ -8,9 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const consumo = document.getElementById("modal-consumo");
     const closeBtn = document.querySelector(".close");
 
-    // Función para mostrar productos
     function mostrarProductos(productos) {
-        galeria.innerHTML = ""; // Limpiamos galería
+        galeria.innerHTML = "";
 
         productos.forEach(producto => {
             const div = document.createElement("div");
@@ -27,18 +25,20 @@ document.addEventListener("DOMContentLoaded", () => {
                         data-consumo="${producto.consumo}">
                         Saber más
                     </button>
-                    <button class="btnComprar" data-id="${producto.id}">Comprar</button>
+                    <button class="btnComprar" data-id="${producto.id}">
+                        Comprar
+                    </button>
                 </div>
             `;
             galeria.appendChild(div);
         });
     }
 
-    // Mostrar productos al cargar
     mostrarProductos(productos);
 
-    // Delegación de eventos para botones "Saber más"
+    // MODAL
     galeria.addEventListener("click", (e) => {
+
         if (e.target.classList.contains("btn-saber-mas")) {
             const btn = e.target;
             titulo.textContent = btn.dataset.titulo;
@@ -46,9 +46,14 @@ document.addEventListener("DOMContentLoaded", () => {
             consumo.textContent = btn.dataset.consumo;
             modal.style.display = "block";
         }
+
+        if (e.target.classList.contains("btnComprar")) {
+            const id = e.target.dataset.id;
+            agregarAlCarrito(id);
+        }
+
     });
 
-    // Cerrar modal
     closeBtn.addEventListener("click", () => {
         modal.style.display = "none";
     });
