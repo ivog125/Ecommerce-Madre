@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const descripcion = document.getElementById("modal-descripcion");
     const consumo = document.getElementById("modal-consumo");
     const closeBtn = document.querySelector(".close");
+    const buscador = document.getElementById("buscador");
 
     function mostrarProductos(productos) {
         galeria.innerHTML = "";
@@ -34,46 +35,50 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    mostrarProductos(productos);
+    // 🔹 Cargar productos desde productos.json
+    fetch('../productos.json')
+        .then(res => res.json())
+        .then(productos => {
 
-    // BUSCADOR
+            // Mostrar todos los productos inicialmente
+            mostrarProductos(productos);
 
-    const buscador = document.getElementById("buscador");
+            // Buscador
+            buscador.addEventListener("input", (e) => {
+                const texto = e.target.value.toLowerCase();
+                const productosFiltrados = productos.filter(producto =>
+                    producto.nombre.toLowerCase().includes(texto)
+                );
+                mostrarProductos(productosFiltrados);
+            });
 
-buscador.addEventListener("input", (e) => {
-    const texto = e.target.value.toLowerCase();
+            // Modal
+            galeria.addEventListener("click", (e) => {
 
-    const productosFiltrados = productos.filter(producto =>
-        producto.nombre.toLowerCase().includes(texto)
-    );
+                if (e.target.classList.contains("btn-saber-mas")) {
+                    const btn = e.target;
+                    titulo.textContent = btn.dataset.titulo;
+                    descripcion.textContent = btn.dataset.descripcion;
+                    consumo.textContent = btn.dataset.consumo;
+                    modal.style.display = "block";
+                }
 
-    mostrarProductos(productosFiltrados);
-});
+                if (e.target.classList.contains("btnComprar")) {
+                    const id = e.target.dataset.id;
+                    agregarAlCarrito(id);
+                }
 
-    // MODAL
-    galeria.addEventListener("click", (e) => {
+            });
 
-        if (e.target.classList.contains("btn-saber-mas")) {
-            const btn = e.target;
-            titulo.textContent = btn.dataset.titulo;
-            descripcion.textContent = btn.dataset.descripcion;
-            consumo.textContent = btn.dataset.consumo;
-            modal.style.display = "block";
-        }
+            closeBtn.addEventListener("click", () => {
+                modal.style.display = "none";
+            });
 
-        if (e.target.classList.contains("btnComprar")) {
-            const id = e.target.dataset.id;
-            agregarAlCarrito(id);
-        }
+            window.addEventListener("click", (e) => {
+                if (e.target === modal) modal.style.display = "none";
+            });
 
-    });
-
-    closeBtn.addEventListener("click", () => {
-        modal.style.display = "none";
-    });
-
-    window.addEventListener("click", (e) => {
-        if (e.target === modal) modal.style.display = "none";
-    });
+        })
+        .catch(err => console.error("No se pudieron cargar los productos:", err));
 
 });
