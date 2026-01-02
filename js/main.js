@@ -75,11 +75,12 @@ document.addEventListener("DOMContentLoaded", () => {
     function actualizarContador() {
         const contador = document.querySelector(".contadorCarrito");
         if (!contador) return;
+
         const total = carrito.reduce((acc, prod) => acc + prod.cantidad, 0);
         contador.textContent = total;
     }
 
-    actualizarContador(); // inicializa contador
+    actualizarContador();
 
     // ===============================
     // CARGAR PRODUCTOS DESDE JSON
@@ -87,7 +88,12 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch('../productos.json')
         .then(res => res.json())
         .then(productos => {
-            productosTienda = productos;
+
+            // ORDEN ALFABETICO A–Z
+            productosTienda = productos.sort((a, b) =>
+                a.nombre.localeCompare(b.nombre, "es", { sensitivity: "base" })
+            );
+
             mostrarProductos(productosTienda);
 
             // ===============================
@@ -95,9 +101,11 @@ document.addEventListener("DOMContentLoaded", () => {
             // ===============================
             buscador.addEventListener("input", (e) => {
                 const texto = e.target.value.toLowerCase();
+
                 const productosFiltrados = productosTienda.filter(producto =>
                     producto.nombre.toLowerCase().includes(texto)
                 );
+
                 mostrarProductos(productosFiltrados);
             });
         })
@@ -124,7 +132,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Cerrar modal
+    // ===============================
+    // CERRAR MODAL
+    // ===============================
     closeBtn.addEventListener("click", () => {
         modal.style.display = "none";
     });
@@ -132,4 +142,5 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("click", (e) => {
         if (e.target === modal) modal.style.display = "none";
     });
+
 });
